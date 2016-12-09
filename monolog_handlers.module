@@ -1,0 +1,22 @@
+<?php
+
+function monolog_handlers_monolog_handler_info() {
+  $handlers = array();
+
+  $handlers['mail'] = array(
+    'label' => t('Mail Handler'),
+    'description' => t('Sends emails using <code>drupal_mail()</code> function.'),
+    'group' => t('Alerts and emails'),
+    'default settings' => array(
+      'to' => '<site-mail>',
+      'from' => '<site-mail>',
+      'subject' => t('Log message sent by !site', array('!site' => variable_get('site_name', 'Drupal'))),
+    ),
+  );
+
+  return $handlers;
+}
+
+function monolog_handlers_monolog_handler_path() {
+  return 'handlers';
+}
